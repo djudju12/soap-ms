@@ -40,6 +40,8 @@
 
     <!-- end GetProductById -->
 
+
+
     <!-- begin product  -->
 
     <xs:complexType name="product">

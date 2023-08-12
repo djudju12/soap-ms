@@ -1,11 +1,21 @@
 spring:
   application:
     name: products
-
-
+  datasource:
+    password: postgres
+    username: postgres
+    url: ${DB_URL:jdbc:postgresql://localhost:25432/products}
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+        hibernate:
+            dialect: org.hibernate.dialect.PostgreSQLDialect
+            format_sql: true
+    defer-datasource-initialization: true
 xsd:
   tns: http://www.soapws.com/products
-
 
 server:
   port: 8000

@@ -26,7 +26,7 @@ public class ProductController {
 
     @PayloadRoot(namespace = "http://www.soapws.com/products", localPart = "GetProcutByIdRequest")
     @ResponsePayload
-    public GetProcutByIdResponse getAllProducts(@RequestPayload GetProcutByIdRequest request){
+    public GetProcutByIdResponse getProduct(@RequestPayload GetProcutByIdRequest request){
         return productsService.findById(request);
     }
 }

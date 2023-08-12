@@ -1,0 +1,22 @@
+---
+version: '2.0'
+services:
+  db:
+    image: postgres:14.1-alpine
+    restart: always
+    ports:
+      - "25432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      - default
+    volumes:
+      - db:/var/lib/postgresql/data
+
+networks:
+  default:
+
+volumes:
+  db:
+
