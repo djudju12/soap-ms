@@ -1,5 +1,5 @@
 ---
-version: '2.0'
+version: '3.0'
 services:
   db:
     image: postgres:14.1-alpine
@@ -13,7 +13,28 @@ services:
       - default
     volumes:
       - db:/var/lib/postgresql/data
+      - ./db/05_products.sql:/docker-entrypoint-initdb.d/05_products.sql
+      - ./db/99_insert_products.sql:/docker-entrypoint-initdb.d/99_insert_products.sql
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
+  ms-products:
+    image: ms-products:1.0.0
+    build: ./products-soap
+    ports:
+      - "8000:8000"
+    networks:
+      - default
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - DB_URL=jdbc:postgresql://db:5432/products
+
+#
 networks:
   default:
 

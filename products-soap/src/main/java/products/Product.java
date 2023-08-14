@@ -30,7 +30,7 @@ import jakarta.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "product", propOrder = {
+@XmlType(name = "product", namespace = "http://www.soapws.com/products", propOrder = {
     "id",
     "name",
     "description",
@@ -38,11 +38,13 @@ import jakarta.xml.bind.annotation.XmlType;
 })
 public class Product {
 
+    @XmlElement(namespace = "http://www.soapws.com/products")
     protected int id;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.soapws.com/products", required = true)
     protected String name;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.soapws.com/products", required = true)
     protected String description;
+    @XmlElement(namespace = "http://www.soapws.com/products")
     protected double price;
 
     /**

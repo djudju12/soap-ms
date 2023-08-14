@@ -31,8 +31,8 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "product"
 })
-@XmlRootElement(name = "GetProcutByIdResponse", namespace = "http://www.soapws.com/products")
-public class GetProcutByIdResponse {
+@XmlRootElement(name = "AddProductResponse", namespace = "http://www.soapws.com/products")
+public class AddProductResponse {
 
     @XmlElement(namespace = "http://www.soapws.com/products", required = true)
     protected Product product;

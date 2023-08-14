@@ -29,4 +29,18 @@ public class ProductController {
     public GetProcutByIdResponse getProduct(@RequestPayload GetProcutByIdRequest request){
         return productsService.findById(request);
     }
+
+    @PayloadRoot(namespace = "http://www.soapws.com/products", localPart = "AddProductRequest")
+    @ResponsePayload
+    public AddProductResponse addProduct(@RequestPayload AddProductRequest request) {
+        return productsService.addProduct(request);
+    }
+
+    @PayloadRoot(namespace = "http://www.soapws.com/products", localPart = "DeleteProductRequest")
+    @ResponsePayload
+    public DeleteProductResponse deleteProduct(@RequestPayload DeleteProductRequest request) {
+        return productsService.deleteProduct(request);
+    }
+
+
 }

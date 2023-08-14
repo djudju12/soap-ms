@@ -25,7 +25,7 @@ import jakarta.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
-@XmlRootElement(name = "GetAllProductsRequest")
+@XmlRootElement(name = "GetAllProductsRequest", namespace = "http://www.soapws.com/products")
 public class GetAllProductsRequest {
 
 

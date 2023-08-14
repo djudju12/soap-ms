@@ -33,10 +33,10 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "products"
 })
-@XmlRootElement(name = "GetAllProductsResponse")
+@XmlRootElement(name = "GetAllProductsResponse", namespace = "http://www.soapws.com/products")
 public class GetAllProductsResponse {
 
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.soapws.com/products", required = true)
     protected List<Product> products;
 
     /**

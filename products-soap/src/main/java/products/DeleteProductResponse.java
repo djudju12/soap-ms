@@ -18,7 +18,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="product" type="{http://www.soapws.com/products}product"/&gt;
+ *         &lt;element name="response" type="{http://www.soapws.com/products}deleteResponse"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -29,36 +29,36 @@ import jakarta.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "product"
+    "response"
 })
-@XmlRootElement(name = "GetProcutByIdResponse", namespace = "http://www.soapws.com/products")
-public class GetProcutByIdResponse {
+@XmlRootElement(name = "DeleteProductResponse", namespace = "http://www.soapws.com/products")
+public class DeleteProductResponse {
 
     @XmlElement(namespace = "http://www.soapws.com/products", required = true)
-    protected Product product;
+    protected DeleteResponse response;
 
     /**
-     * Obtém o valor da propriedade product.
+     * Obtém o valor da propriedade response.
      * 
      * @return
      *     possible object is
-     *     {@link Product }
+     *     {@link DeleteResponse }
      *     
      */
-    public Product getProduct() {
-        return product;
+    public DeleteResponse getResponse() {
+        return response;
     }
 
     /**
-     * Define o valor da propriedade product.
+     * Define o valor da propriedade response.
      * 
      * @param value
      *     allowed object is
-     *     {@link Product }
+     *     {@link DeleteResponse }
      *     
      */
-    public void setProduct(Product value) {
-        this.product = value;
+    public void setResponse(DeleteResponse value) {
+        this.response = value;
     }
 
 }

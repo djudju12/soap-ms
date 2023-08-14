@@ -1,4 +1,4 @@
-select * from tb_products;
+\c products;
 
 INSERT INTO tb_products(name, description, price)
 VALUES ('Notebook', 'Notebook Dell', 3500.00);

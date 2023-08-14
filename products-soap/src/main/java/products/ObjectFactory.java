@@ -69,4 +69,44 @@ public class ObjectFactory {
         return new GetProcutByIdResponse();
     }
 
+    /**
+     * Create an instance of {@link AddProductRequest }
+     * 
+     */
+    public AddProductRequest createAddProductRequest() {
+        return new AddProductRequest();
+    }
+
+    /**
+     * Create an instance of {@link AddProductResponse }
+     * 
+     */
+    public AddProductResponse createAddProductResponse() {
+        return new AddProductResponse();
+    }
+
+    /**
+     * Create an instance of {@link DeleteProductRequest }
+     * 
+     */
+    public DeleteProductRequest createDeleteProductRequest() {
+        return new DeleteProductRequest();
+    }
+
+    /**
+     * Create an instance of {@link DeleteProductResponse }
+     * 
+     */
+    public DeleteProductResponse createDeleteProductResponse() {
+        return new DeleteProductResponse();
+    }
+
+    /**
+     * Create an instance of {@link DeleteResponse }
+     * 
+     */
+    public DeleteResponse createDeleteResponse() {
+        return new DeleteResponse();
+    }
+
 }
