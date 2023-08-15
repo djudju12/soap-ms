@@ -1,27 +1,30 @@
 package com.jonathan.products.soap.productssoap.service.impl;
 
+import com.jonathan.products.soap.productssoap.exception.ProductNotFoundException;
 import com.jonathan.products.soap.productssoap.model.ProductEntity;
 import com.jonathan.products.soap.productssoap.repository.ProductsRepository;
 import com.jonathan.products.soap.productssoap.service.ProductsService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import products.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@RequiredArgsConstructor
 @Service
+@Slf4j
 public class ProductsServiceImpl implements ProductsService {
 
     private final ProductsRepository productsRepository;
 
-    public ProductsServiceImpl(ProductsRepository productsRepository) {
-        this.productsRepository = productsRepository;
-    }
-
     @Override
     public GetProcutByIdResponse findById(GetProcutByIdRequest request) {
-        ProductEntity entity = productsRepository.findById(request.getId())
-                .orElseThrow(() -> new RuntimeException("Product not found"));
+        int id = request.getId();
+        ProductEntity entity = productsRepository.findById(id)
+                .orElseThrow(() -> new ProductNotFoundException(id));
+
         Product product = map(entity);
         GetProcutByIdResponse response = new GetProcutByIdResponse();
         response.setProduct(product);
